@@ -80,7 +80,7 @@ NekTimeStepper::NekTimeStepper(const InputParameters & parameters)
                  "already specified by 'NekTimeStepper'!");
 
   // at this point, this is non-dimensional dt
-  _nek_dt = nekrs::dt(1);
+  _nek_dt = std::get<0>(nekrs::dt(1));
 }
 
 Real
@@ -92,7 +92,7 @@ NekTimeStepper::computeInitialDT()
 Real
 NekTimeStepper::computeDT()
 {
-  Real dt = nekrs::hasVariableDt() ? nekrs::dt(_t_step) : _nek_dt;
+  Real dt = nekrs::hasVariableDt() ? std::get<0>(nekrs::dt(_t_step)) : _nek_dt;
   return dt * nekrs::referenceTime();
 }
 

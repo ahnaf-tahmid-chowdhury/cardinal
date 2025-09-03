@@ -27,7 +27,7 @@
 #include "nekrs.hpp"
 #include "bcMap.hpp"
 #include "udf.hpp"
-#include "inipp.hpp"
+#include "nrs.hpp"
 #include "mesh.h"
 
 #include "libmesh/point.h"
